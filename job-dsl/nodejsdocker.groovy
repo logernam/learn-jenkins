@@ -9,12 +9,12 @@ job('NodeJS Docker example') {
         scm('H/5 * * * *')
     }
     wrappers {
-        nodejs('nodejs') // this is the name of the NodeJS installation in 
+        nodejs('NodeJS 7.10.0') // this is the name of the NodeJS installation in
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('wardviaene/docker-nodejs-demo')
+            repositoryName('logernam/jenkins-test-app-01')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
             forcePull(false)
